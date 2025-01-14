@@ -1,150 +1,166 @@
-## Tither - Seamless Giving Management
+# Tither Project
 
-Overview
-Tither is a secure, user-friendly web application designed for Mt. Pilgrim Metropolitan Baptist Church. This system streamlines electronic payment collection, membership record management, and end-of-year contribution reporting for tax purposes.
+## Overview
 
-Built with a robust tech stack, the application uses:
-- Frontend: HTML, CSS, and JavaScript for a responsive and engaging user experience.
-- Backend: Spring Boot framework for authentication, payment processing, and reporting services.
-- Database: MySQL with Hibernate for seamless object-relational mapping.
+Tither is a comprehensive web application designed to help users manage their tithing records efficiently. Built with a 
+robust backend using Spring Boot and a dynamic frontend using HTML, CSS, and JavaScript, Tither ensures a seamless user
+experience. This project demonstrates the implementation of a complete web application with CRUD operations, database 
+connectivity, and user authentication.
 
-The application is named Tither, with the primary class TitherApplication located in the org.mt_pilgrim.tither package.
+## Project Structure
 
-Key Features:
-- Login Page: Collects user credentials securely.
-- Member Dashboard: Displays contribution history and allows users to generate end-of-year tax reports.
-- Contribution History Page: Enables filtering contributions by date and type.
+The project is divided into four main sections: Frontend, Backend, Database, and Security. Below is a visual diagram of
+the project/file structure:
 
-The application is styled with an external CSS file (style.css) and uses a JavaScript file (index.js) for dynamic functionality. Testing is supported through a test class, TitherApplicationTests, with test cases planned for future implementation.
+```
+tither
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── org
+│   │   │       └── mt_pilgrim
+│   │   │           └── tither
+│   │   │               ├── controller
+│   │   │               │   └── UserController.java
+│   │   │               ├── model
+│   │   │               │   └──
 
-Project Structure
-The Tither project is structured across four key layers:
+User.java
+
+
+│   │   │               ├── repository
+│   │   │               │   └── UserRepository.java
+│   │   │               ├── service
+│   │   │               │   └── UserService.java
+│   │   │               └── exception
+│   │   ├── resources
+│   │   │   ├── application.properties
+│   │   │   └── static
+│   │   │       ├── css
+│   │   │       │   └── styles.css
+│   │   │       ├── js
+│   │   │       │   └── scripts.js
+│   │   │       └── templates
+│   │   │           └── index.html
+│   └── test
+│       └── java
+│           └── org
+│               └── mt_pilgrim
+│                   └── tither
+│                       └── UserServiceTest.java
+├── .gitignore
+├── README.md
+└──
+
+pom.xml
+
+
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Java 11 or higher
+- Maven
+- MySQL
+
+### Installation
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/timothylrichardson/tither.git
+   cd tither
+   ```
+
+2. **Set up the database**:
+    - Create a MySQL database named
+
+tither
+
+.
+- Update the database configuration in
+
+application.properties
+
+with your MySQL username and password.
+
+3. **Build the project**:
+   ```bash
+   mvn clean install
+   ```
+
+4. **Run the application**:
+   ```bash
+   mvn spring-boot:run
+   ```
+
+### Usage
+
+- Access the application at `http://localhost:8080`.
+- Use the provided endpoints to manage users and their tithing records.
+
+### Endpoints
+
+- `GET /api/users`: Retrieve all users.
+- `GET /api/users/{id}`: Retrieve a user by ID.
+- `POST /api/users`: Create a new user.
+- `PUT /api/users/{id}`: Update an existing user.
+- `DELETE /api/users/{id}`: Delete a user.
+
+## Project Details
 
 ### Frontend Layer
+
 - **Login Page**: Facilitates secure user authentication.
 - **Member Dashboard**:
-  - Displays contribution history.
-  - Generates end-of-year tax reports.
+    - Displays contribution history.
+    - Generates end-of-year tax reports.
 - **Contribution History Page**: Allows users to filter contributions by date and type.
 
 ### Backend Services
+
 - **Authentication Service**:
-  - Manages secure user login and registration.
-  - Includes role management for different user types.
+    - Manages secure user login and registration.
+    - Includes role management for different user types.
 - **Payment Processing Service**:
-  - Integrates with Visa/MasterCard payment gateways for seamless transactions.
+    - Integrates with Visa/MasterCard payment gateways for seamless transactions.
 - **Contribution Management Service**:
-  - Handles database CRUD operations for contributions.
+    - Handles database CRUD operations for contributions.
 - **Report Generation Service**:
-  - Creates customizable reports based on user inputs.
-  - Includes predefined report templates.
+    - Creates customizable reports based on user inputs.
+    - Includes predefined report templates.
 
 ### Database
+
 - **Users Table**: Stores user account information and credentials.
 - **Contributions Table**: Tracks all user contributions.
 - **Roles Table**: Manages user roles and permissions.
 
 ### Security
+
 - **Role-Based Access**: Ensures only authorized users can access specific features.
 - **Data Privacy**: Implements encryption and secure handling of sensitive data.
 - **Immutable Logging**: Provides tamper-proof logs for auditing.
 - **Audit Trail**: Tracks all significant actions within the application.
 
-```
-Frontend Layer
-├── Login Page
-├── Member Dashboard
-│   ├── Contribution History
-│   └── Tax Report
-├── Contribution History Page
+### Testing
 
-Backend Services
-├── Authentication Service
-│   └── Role Management
-├── Payment Processing Service
-│   └── Visa/MC Gateway Integration
-├── Contribution Management Service
-│   └── Database CRUD Operations
-├── Report Generation Service
-    └── Report Templates
+- **Unit Tests**: JUnit tests for service methods
 
-Database
-├── Users Table
-├── Contributions Table
-└── Roles Table
+## Contributing
 
-Security
-├── Role-Based Access
-├── Data Privacy
-├── Immutable Logging
-└── Audit Trail
-```
+Contributions are welcome! Please fork the repository and create a pull request with your changes.
 
-Project Requirements
-To work with this project, you need the following:
+## License
 
-1. Spring Boot Framework:
-   - For building stand-alone, production-grade Spring-based applications with minimal configuration.
+This project is licensed under the MIT License.
 
-2. Properties File:
-   - Used to externalize configuration, typically named application.properties or application.yml.
+## Contact
 
-3. UTF-8 Encoding:
-   - Ensure the properties file uses UTF-8 encoding to correctly interpret all characters.
-
-Getting Started
-Follow these steps to set up and run Tither on your local machine:
-
-### Prerequisites
-Ensure you have the following installed:
-1. **Java Development Kit (JDK) 11 or later**:
-   - Download and install from [Oracle](https://www.oracle.com/java/technologies/javase-downloads.html) or [OpenJDK](https://openjdk.org/).
-
-2. **MySQL Server**:
-   - Download and install from [MySQL](https://dev.mysql.com/downloads/).
-   - Create a database named `tither_db`.
-
-3. **Maven**:
-   - Ensure Maven is installed for managing dependencies. Download it from [Maven](https://maven.apache.org/download.cgi).
-
-4. **Git**:
-   - Clone the repository using Git. Install from [Git](https://git-scm.com/).
-
-### Installation Steps
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/yourusername/tither.git
-   cd tither
-   ```
-
-2. **Configure the Application**:
-   - Navigate to `src/main/resources`.
-   - Open `application.properties` and update the following with your MySQL credentials:
-     ```properties
-     spring.datasource.url=jdbc:mysql://localhost:3306/tither_db
-     spring.datasource.username=your_username
-     spring.datasource.password=your_password
-     ```
-
-3. **Build the Application**:
-   - Run the following command to build the project:
-     ```bash
-     mvn clean install
-     ```
-
-4. **Run the Application**:
-   - Start the application using:
-     ```bash
-     mvn spring-boot:run
-     ```
-
-5. **Access the Application**:
-   - Open your web browser and navigate to:
-     ```
-     http://localhost:8080
-     ```
-
-6. **Login**:
-   - Use the default admin credentials provided in the documentation or database seed script.
+For any questions or inquiries, please contact [Timothy Richardson](mailto:timothylrichardson@protonmail.com).
 
 You are now ready to use Tither!
+```
+
+
